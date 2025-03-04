@@ -14,7 +14,7 @@ import {
 import apiResponse from "../../utils/api/response";
 import { hashPassword } from "../../utils/auth";
 import catchAsync from "../../utils/errors/catchAsync";
-import { publishMessageVerifyEmail } from "../../queues/producer";
+import { publishMessageVerifyEmail } from "../../queues/producers";
 import UserService from "../../services/users";
 class AuthController {
   static register = catchAsync(async (req: Request, res: Response) => {
