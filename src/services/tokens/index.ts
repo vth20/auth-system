@@ -81,6 +81,14 @@ class TokenService {
     return tokenDoc;
   };
 
+  static verifyAccessToken = (token: string) => {
+    const payload = jwt.verify(token, config.jwt.secret) as IJwtPayload;
+    if (!payload) {
+      throw new Error("Token is invalid");
+    }
+    return payload;
+  };
+
   static generateAuthTokens = async (
     user: IUserAuthToken,
     trx?: Knex.Transaction
